@@ -1,0 +1,371 @@
+/* ==========================================================================
+   МатОГЭ.Про — Стили образовательного портала для подготовки к ОГЭ по математике
+   Дизайн: чистый, дружелюбный к школьникам, светлая и тёмная темы, LaTeX-формулы
+   ========================================================================== */
+
+:root {
+  --bg-main: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-muted: #f1f5f9;
+  --bg-accent-soft: #eef2ff;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --accent-light: #e0e7ff;
+  --border-color: #e2e8f0;
+  --success: #10b981;
+  --success-bg: #ecfdf5;
+  --warning: #f59e0b;
+  --warning-bg: #fffbeb;
+  --danger: #ef4444;
+  --danger-bg: #fef2f2;
+  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 4px 10px -3px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 20px 35px -10px rgba(79, 70, 229, 0.14);
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+}
+
+html.dark {
+  --bg-main: #0b1120;
+  --bg-surface: #1e293b;
+  --bg-muted: #0f172a;
+  --bg-accent-soft: #1e1b4b;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --accent: #6366f1;
+  --accent-hover: #818cf8;
+  --accent-light: #312e81;
+  --border-color: #334155;
+  --success: #34d399;
+  --success-bg: rgba(16, 185, 129, 0.15);
+  --warning: #fbbf24;
+  --warning-bg: rgba(245, 158, 11, 0.15);
+  --danger: #f87171;
+  --danger-bg: rgba(239, 68, 68, 0.15);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 20px 35px -10px rgba(0, 0, 0, 0.55);
+}
+
+/* Спец цвет: Чёрно-фиолетовый (Angel’s Squad Special Edition) */
+html.black-purple {
+  --bg-main: #06020f;
+  --bg-surface: #110722;
+  --bg-muted: #190b31;
+  --bg-accent-soft: #2a1052;
+  --text-primary: #f5f0ff;
+  --text-secondary: #d8b4fe;
+  --text-muted: #a78bfa;
+  --accent: #a855f7;
+  --accent-hover: #c084fc;
+  --accent-light: #3b0764;
+  --border-color: #4c1d95;
+  --success: #34d399;
+  --success-bg: rgba(16, 185, 129, 0.18);
+  --warning: #fbbf24;
+  --warning-bg: rgba(245, 158, 11, 0.18);
+  --danger: #fb7185;
+  --danger-bg: rgba(244, 63, 94, 0.18);
+  --shadow-sm: 0 2px 14px rgba(168, 85, 247, 0.16);
+  --shadow-md: 0 10px 28px -5px rgba(168, 85, 247, 0.28);
+  --shadow-lg: 0 20px 42px -10px rgba(168, 85, 247, 0.45);
+}
+
+html.black-purple body {
+  background-image:
+    radial-gradient(circle at 15% 15%, rgba(168, 85, 247, 0.16) 0%, transparent 38%),
+    radial-gradient(circle at 85% 10%, rgba(126, 34, 206, 0.18) 0%, transparent 35%),
+    radial-gradient(circle at 50% 85%, rgba(192, 132, 252, 0.10) 0%, transparent 45%);
+  background-attachment: fixed;
+}
+
+html.black-purple .surface-card {
+  border-color: rgba(168, 85, 247, 0.38);
+  box-shadow: 0 4px 20px rgba(88, 28, 135, 0.28), inset 0 1px 0 rgba(216, 180, 254, 0.12);
+}
+
+html.black-purple .surface-card:hover {
+  border-color: rgba(192, 132, 252, 0.72);
+  box-shadow: 0 10px 30px rgba(168, 85, 247, 0.34);
+}
+
+html.black-purple .btn-primary {
+  background: linear-gradient(135deg, #9333ea 0%, #7e22ce 50%, #c026d3 100%);
+  box-shadow: 0 4px 18px rgba(168, 85, 247, 0.48);
+}
+
+html.black-purple .btn-primary:hover {
+  background: linear-gradient(135deg, #a855f7 0%, #9333ea 50%, #d946ef 100%);
+  box-shadow: 0 6px 24px rgba(192, 132, 252, 0.65);
+}
+
+.angels-squad-badge {
+  background: linear-gradient(135deg, #090314 0%, #3b0764 55%, #7e22ce 100%);
+  color: #f3e8ff;
+  border: 1px solid #c084fc;
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.45);
+}
+
+.formula-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 0.3rem 0.65rem;
+  border-radius: 8px;
+  background: var(--bg-accent-soft);
+  color: var(--accent);
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-decoration: none;
+}
+
+.formula-link-btn:hover {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  overflow-x: hidden;
+}
+
+/* LaTeX-подобное оформление математических формул */
+.math-formula {
+  font-family: 'Cambria Math', 'Latin Modern Math', 'STIX Two Math', 'Times New Roman', Georgia, serif;
+  font-size: 1.14rem;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.22rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 8px;
+  background: var(--bg-accent-soft);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  line-height: 1.3;
+}
+
+.math-formula sub,
+.math-formula sup {
+  font-style: normal;
+  font-size: 0.72em;
+}
+
+.math-formula .frac {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  vertical-align: middle;
+  margin: 0 0.2rem;
+  font-size: 0.92em;
+}
+
+.math-formula .frac > span:first-child {
+  border-bottom: 1.5px solid currentColor;
+  padding: 0 0.25rem 0.05rem;
+}
+
+.math-formula .frac > span:last-child {
+  padding: 0.05rem 0.25rem 0;
+}
+
+/* Карточки и поверхности */
+.surface-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.surface-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+/* Кнопки */
+.btn-primary {
+  background-color: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+  padding: 0.75rem 1.4rem;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.28);
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  font-weight: 600;
+  padding: 0.75rem 1.3rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  background-color: var(--bg-muted);
+  border-color: var(--accent);
+}
+
+/* Навигационные ссылки */
+.nav-link {
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.94rem;
+  padding: 0.45rem 0.75rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--accent);
+  background-color: var(--bg-accent-soft);
+}
+
+/* Табы теории и сложности */
+.pill-tab {
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  border: 1px solid var(--border-color);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.pill-tab:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.pill-tab.active {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+  box-shadow: 0 3px 10px rgba(79, 70, 229, 0.25);
+}
+
+/* Поля ввода */
+.input-field {
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1.5px solid var(--border-color);
+  border-radius: 10px;
+  padding: 0.65rem 0.95rem;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.18);
+}
+
+/* Таймер экзамена */
+.timer-badge {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.timer-warning {
+  background-color: var(--warning-bg) !important;
+  color: var(--warning) !important;
+  border-color: var(--warning) !important;
+  animation: pulse-soft 1.6s infinite;
+}
+
+.timer-danger {
+  background-color: var(--danger-bg) !important;
+  color: var(--danger) !important;
+  border-color: var(--danger) !important;
+  animation: pulse-soft 0.9s infinite;
+}
+
+@keyframes pulse-soft {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+/* Всплывающее уведомление (Toast) */
+#toast-container {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 360px;
+}
+
+.toast-item {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border-left: 4px solid var(--accent);
+  border-radius: 12px;
+  padding: 0.85rem 1.1rem;
+  box-shadow: var(--shadow-lg);
+  border-top: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Стили печати шпаргалки формул */
+@media print {
+  header, footer, #trainer, #exam, #hero-actions, #toast-container {
+    display: none !important;
+  }
+}
